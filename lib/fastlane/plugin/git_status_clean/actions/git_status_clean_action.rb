@@ -2,7 +2,9 @@ module Fastlane
   module Actions
     class GitStatusCleanAction < Action
       def self.run(params)
-        UI.message("The git_status_clean plugin is working!")
+        repo_status = Actions.sh("git status --porcelain")
+        Actions.sh("git reset --hard") if !repo_status.empty?
+        UI.success('Git status is clean, all good!')
       end
 
       def self.description
@@ -36,8 +38,7 @@ module Fastlane
         # Adjust this if your plugin only works for a particular platform (iOS vs. Android, for example)
         # See: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
         #
-        # [:ios, :mac, :android].include?(platform)
-        true
+        [:ios, :mac, :android].include?(platform)
       end
     end
   end

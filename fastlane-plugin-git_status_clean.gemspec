@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'zhangqi_248@qq.com'
 
   spec.summary       = 'clean git status'
-  # spec.homepage      = "https://github.com/<GITHUB_USERNAME>/fastlane-plugin-git_status_clean"
+  spec.homepage      = "https://github.com/chdzq/fastlane-plugin-git_status_clean"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
